@@ -1,6 +1,37 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+fun main() {
+    // Connecting nodes one by one
+    run {
+        val node1 = Node(value = 1)
+        val node2 = Node(value = 2)
+        val node3 = Node(value = 3)
 
-    // Try adding program arguments at Run/Debug configuration
-    println("Program arguments: ${args.joinToString()}")
+        node1.next = node2
+        node2.next = node3
+
+        println(node1)
+    }
+    // Filling in the linked list using multiple pushes
+    run {
+        val list = LinkedList<Int>()
+        list.push(3)
+        list.push(2)
+        list.push(1)
+
+        println(list)
+    }
+    // Chained pushes
+    run {
+        val list = LinkedList<Int>()
+        list.push(3).push(2).push(1)
+        println(list)
+    }
+    //
+    run {
+        val list = LinkedList<Int>()
+        list.append(1)
+        list.append(2)
+        list.append(3)
+
+        println(list)
+    }
 }
