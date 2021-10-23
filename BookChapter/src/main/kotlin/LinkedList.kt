@@ -37,4 +37,32 @@ class LinkedList<T> {
         tail = tail?.next
         size++
     }
+
+    fun nodeAt(index: Int): Node<T>? {
+        // 1
+        var currentNode = head
+        var currentIndex = 0
+
+        // 2
+        while (currentNode != null && currentIndex < index) {
+            currentNode = currentNode.next
+            currentIndex++
+        }
+
+        return currentNode
+    }
+
+    fun insert(value: T, afterNode: Node<T>): Node<T> {
+        // 1
+        if (tail == afterNode) {
+            append(value)
+            return tail!!
+        }
+        // 2
+        val newNode = Node(value = value, next = afterNode.next)
+        // 3
+        afterNode.next = newNode
+        size++
+        return newNode
+    }
 }
